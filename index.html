@@ -17,7 +17,8 @@
     header img {
       width: 100%;
       max-width: 1600px;
-      height: 350px;
+      height: auto;          /* keep ratio */
+      max-height: 350px;
       object-fit: cover;
       display: block;
       margin: 0 auto;
@@ -28,25 +29,27 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      margin: 40px auto;
+      margin: 30px auto;
       max-width: 1600px;
-      gap: 30px;
-      flex-wrap: wrap; /* makes responsive on small screens */
+      gap: 20px;
+      flex-wrap: wrap; /* allows wrapping on small screens */
+      padding: 0 15px;
     }
 
     /* Each block (image + button) */
     .link-block {
-      flex: 1;
-      max-width: 300px; /* adjust size */
+      flex: 1 1 200px; /* responsive sizing */
+      max-width: 300px;
+      min-width: 180px;
       text-align: center;
     }
 
     .link-block img {
       width: 100%;
       height: auto;
-      max-height: 250px;
+      max-height: 220px;
       object-fit: contain;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .link-block button {
@@ -64,6 +67,20 @@
     .link-block button:hover {
       background: #0056b3;
     }
+
+    /* ✅ Mobile screen adjustments */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .link-block {
+        max-width: 90%; /* buttons take almost full width */
+      }
+      .link-block img {
+        max-height: 180px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -77,19 +94,19 @@
   <div class="container">
     <div class="link-block">
       <img src="icon1.png" alt="Link 1">
-      <button onclick="window.location.href='https://link1.com'">MOCK PARLIAMENT</button>
+      <button onclick="window.location.href='https://link1.com'">Go to Link 1</button>
     </div>
     <div class="link-block">
       <img src="icon2.png" alt="Link 2">
-      <button onclick="window.location.href='https://link2.com'">IDEA PRESENTAION</button>
+      <button onclick="window.location.href='https://link2.com'">Go to Link 2</button>
     </div>
     <div class="link-block">
       <img src="icon3.png" alt="Link 3">
-      <button onclick="window.location.href='https://link3.com'">CIRCUIT RACE</button>
+      <button onclick="window.location.href='https://link3.com'">Go to Link 3</button>
     </div>
     <div class="link-block">
       <img src="icon4.png" alt="Link 4">
-      <button onclick="window.location.href='https://link4.com'">SHORT FILM</button>
+      <button onclick="window.location.href='https://link4.com'">Go to Link 4</button>
     </div>
   </div>
 
